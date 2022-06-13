@@ -65,7 +65,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="registro.php">Registrar</a>
+                        <a class="collapse-item" href="registro-php">Registrar</a>
                         <a class="collapse-item" href="consulta.php">Consulta</a>
                     </div>
                 </div>
@@ -302,65 +302,22 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                      <!-- Page Heading -->
-                      <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOMBRE</th>
-                                            <th>APELLIDO</th>
-                                            <th>TELEFONO</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOMBRE</th>
-                                            <th>APELLIDO</th>
-                                            <th>TELEFONO</th>
-                                            
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                      
-                                        <?php
-                                        //hacemos instancias del archivo PHP
-                                        include("conexion.php");
-                                        $con= conectar();
-                                        //generamos la sentencia sql
-                                        $sql = "SELECT * FROM usuario";
-                                        $datos = mysqli_query($con,$sql);
-                                        while($tabla = mysqli_fetch_array($datos)){ 
-                                        ?>
-                                         <tr>
-<th><?php echo $tabla['ID']; ?></th>  
-<th><?php echo $tabla['NOMBRE']; ?></th>  
-<th><?php echo $tabla['APELLIDO']; ?></th>  
-<th><?php echo $tabla['TELEFONO']; ?></th>  
-    </tr>
-    <?php
- 
-}
-?>
-                                        </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
+                <form method= "POST" action="registrar.php">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Apellido</label>
+    <input type="text" class="form-control" name="apellido" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">No. Telefono</label>
+    <input type="text" class="form-control" name="telefono" aria-describedby="emailHelp">
+  </div>
+  <button type="submit" class="btn btn-primary">REGISTRAR</button>
+</form>  
+                     
                 </div>
                 <!-- /.container-fluid -->
 
@@ -372,7 +329,6 @@
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2021</span>
-                    </div>
                 </div>
             </footer>
             <!-- End of Footer -->

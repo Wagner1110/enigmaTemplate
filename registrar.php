@@ -12,5 +12,5 @@ die(mysqli_error($con));
 
 
 }
-//header("refresh:2;url=http://localhost/template/consulta.php");
+header("refresh:2;url=http://localhost/template/consulta.php");
 ?>

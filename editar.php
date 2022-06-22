@@ -65,7 +65,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="registro.php">Registrar</a>
+                        <a class="collapse-item" href="registro-php">Registrar</a>
                         <a class="collapse-item" href="consulta.php">Consulta</a>
                     </div>
                 </div>
@@ -83,10 +83,8 @@
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
-                    and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
-                    Pro!</a>
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
 
         </ul>
@@ -214,7 +212,8 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -225,7 +224,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -236,7 +236,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -268,7 +269,8 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -300,70 +302,34 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOMBRE</th>
-                                            <th>APELLIDO</th>
-                                            <th>TELEFONO</th>
-                                            <th>ACCIONES</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>NOMBRE</th>
-                                            <th>APELLIDO</th>
-                                            <th>TELEFONO</th>
-                                            <th>ACCIONES</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-
-                                        <?php
-                                        //hacemos instancias del archivo PHP
-                                        include("conexion.php");
-                                        $con= conectar();
-                                        //generamos la sentencia sql
-                                        $sql = "SELECT * FROM usuario";
-                                        $datos = mysqli_query($con,$sql);
-                                        while($tabla = mysqli_fetch_array($datos)){ 
-                                        ?>
-                                        <tr>
-                                            <th><?php echo $tabla['ID']; ?></th>
-                                            <th><?php echo $tabla['NOMBRE']; ?></th>
-                                            <th><?php echo $tabla['APELLIDO']; ?></th>
-                                            <th><?php echo $tabla['TELEFONO']; ?></th>
-                                            <th>
-                                            <a href="editar.php<?php echo $tabla['ID']; ?>" class="btn btn-warning btn-circle">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </a>
-                                            </th>
-                                        </tr>
-                                        <?php
-  
-}
-?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php 
+                    $idR = $_GET['ID'];
+                  //hacemos instancia del archivo PHP
+                  include("conexion.php");
+                  $con = conectar();
+                  //generamos la sentencia SQL
+                  $sql = "SELECT * FROM usuario WHERE id ='$idR'";
+                  //ejecutamos la sentencia sql con la conexion a base de datos
+                  $datos = mysqli_query($con,$sql);
+                  $tabla = mysqli_fetch_array($datos)
+                    
+                    ?>
+                <form method= "POST" action="registrar.php">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Apellido</label>
+    <input type="text" class="form-control" name="apellido" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">No. Telefono</label>
+    <input type="text" class="form-control" name="telefono" aria-describedby="emailHelp">
+  </div>
+  <button type="submit" class="btn btn-primary">REGISTRAR</button>
+</form>  
+                     
                 </div>
                 <!-- /.container-fluid -->
 
@@ -375,7 +341,6 @@
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2021</span>
-                    </div>
                 </div>
             </footer>
             <!-- End of Footer -->

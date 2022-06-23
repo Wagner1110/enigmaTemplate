@@ -349,9 +349,11 @@
                                             <th><?php echo $tabla['APELLIDO']; ?></th>
                                             <th><?php echo $tabla['TELEFONO']; ?></th>
                                             <th>
-                                            <a href="editar.php<?php echo $tabla['ID']; ?>" class="btn btn-warning btn-circle">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </a>
+                                            <a href="editar.php?id=<?php echo $tabla['ID']; ?>" class="btn btn-warning btn-circle btn-sm">
+                                        <i class="fas fa-edit"></i></a>
+                                        <a href="delete.php?id=<?php echo $tabla['ID']; ?>"   class="btn btn-danger btn-circle btn-sm">
+                                        <i class="fas fa-trash"></i></a>
+                                    
                                             </th>
                                         </tr>
                                         <?php

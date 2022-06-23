@@ -303,7 +303,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <?php 
-                    $idR = $_GET['ID'];
+                    $idR = $_GET['id'];
                   //hacemos instancia del archivo PHP
                   include("conexion.php");
                   $con = conectar();
@@ -315,17 +315,21 @@
                     
                     ?>
                 <form method= "POST" action="registrar.php">
+                <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">ID</label>
+    <input type="text" class="form-control" name="id" value="<?php echo $idR; ?>" aria-describedby="emailHelp">
+  </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre</label>
-    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp">
+    <input type="text" class="form-control" name="nombre" value="<?php echo $tabla['NOMBRE'] ?>" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Apellido</label>
-    <input type="text" class="form-control" name="apellido" aria-describedby="emailHelp">
+    <input type="text" class="form-control" name="apellido"  value="<?php echo $tabla['APELLIDO']; ?>" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">No. Telefono</label>
-    <input type="text" class="form-control" name="telefono" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1" class="form-label">Telefono</label>
+    <input type="text" class="form-control" name="telefono"  value="<?php echo $tabla['TELEFONO']; ?>" aria-describedby="emailHelp">
   </div>
   <button type="submit" class="btn btn-primary">REGISTRAR</button>
 </form>  
